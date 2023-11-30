@@ -1,0 +1,94 @@
+<!-- main.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Página Principal</title>
+</head>
+<body>
+    <!-- Adicionando a faixa amarela com os botões -->
+    <div class="header">
+        <button class="header-button" onclick="performTop()">Top</button>
+        <button class="header-button" onclick="performConfig()">Config</button>
+        <button class="header-button" onclick="performLogout()">Sair</button>
+    </div>
+
+    <!-- Adicionando as faixas -->
+    <div class="gray-label">
+        <div class="user-info-left">
+            <div class="user-photo">&nbsp;</div>
+        </div>
+        <div class="user-info-right">
+            <div class="user-greeting">
+                Olá, eu sou <span class="user-name">{{ user_name }}</span>
+            </div>
+            <div class="edit-profile">
+                <img src="{{ url_for('static', filename='Img/IconeLapis.png') }}" alt="Ícone Lápis">
+                <span class="user-details">(informações do usuário)</span>
+            </div>
+
+            <div class="user-buttons">
+                <button class="custom-button" onclick="performAcao1()">Meus Pets</button>
+                <button class="custom-button" onclick="performAcao2()">Carteirinha</button>
+            </div>
+        </div>
+    </div>
+    <div class="white-label"></div>
+    <div class="white-label">
+        <div class="yellow-pet-label-left">
+            <div class="yellow-label-content" id="side1">
+                <!-- Lado 1: Foto e Nome -->
+                
+                <div class="yellow-label-side">
+                    <div class="pet-photo">
+                        <img src="{{ url_for('static', filename='Img/dog2.jpg') }}" alt="Left Icon">
+                    </div>
+                    <div class="pet-name" id="pet-name-side1"></div>
+                </div>
+            </div>
+            <div class="yellow-label-content" id="side2">
+                <!-- Lado 2: Detalhes do Pet -->
+                <div class="yellow-label-side">
+                    <div class="pet-details">
+                        <div class="info-label">Nome:</div>
+                        <div class="info-text" id="pet-name-side2"></div>
+
+                        <div class="info-label">Raça:</div>
+                        <div class="info-text" id="pet-breed-side2"></div>
+
+                        <div class="info-label">Peso:</div>
+                        <div class="info-text" id="pet-weight-side2"></div>
+
+                        <div class="info-label">Idade:</div>
+                        <div class="info-text" id="pet-age-side2"></div>
+
+                        <div class="info-label">Data de Nascimento:</div>
+                        <div class="info-text" id="pet-birthdate-side2"></div>
+
+                        <div class="info-label">Cor:</div>
+                        <div class="info-text" id="pet-color-side2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="left-button" onclick="performLeftButton()">
+            <img src="{{ url_for('static', filename='Img/Esquerda.png') }}" alt="Left Icon">
+        </button>
+        <!-- Seu conteúdo existente aqui -->
+        <button class="right-button" onclick="performRightButton()">
+            <img src="{{ url_for('static', filename='Img/Direita.png') }}" alt="Right Icon">
+        </button>
+        <div class="yellow-label-left">
+            <img src="{{ url_for('static', filename='Img/Mais.png') }}" alt="Adicionar">
+        </div>
+    </div>
+    <div class="yellow-label"></div>
+
+    <!-- Conteúdo da página principal aqui -->
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

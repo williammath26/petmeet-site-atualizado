@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <header id="header">
+        <div class="layer"></div>
+
+        <div class="main">
+            <div class="left">
+                <h1>PETMEET</h1>
+                <p>Mostre aos seus amigos seus Pets </p>
+            </div>
+            <div class="right">
+                <!-- Modificação no formulário de login -->
+                <form action="/login" method="post">
+                    <div class="form_body">
+                        <div>
+                            
+             
+<label for="email">Email:</label>
+                            <input type="email" name="email" placeholder="email" id="email" required autocomplete="email"><br><br>
+                        </div>
+                        <div>
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" placeholder="Password" id="senha" required autocomplete="current-password"><br><br>
+                        </div>
+                        <div>
+                            <button type="submit" class="login">Login</button>
+                            <p class="forget">Esqueceu a senha?</p>
+                            <hr>
+                            <!-- Modificação no botão "Nova conta" -->
+                            <button type="button" class="create" onclick="show()">Nova conta</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="foot"><span>Crie uma página para seu Pet</span> Para mostrar aos seus familiares e amigos.</p>
+            </div>
+        </div>
+
+        <div class="signup" id="signup">
+            <div class="top">
+                <div>
+                    <h2>Sign Up</h2>
+                    <p>É bem simples de se cadastrar</p>
+                </div>
+                <img src="{{ url_for('static', filename='Img/cross.png') }}" alt="" onclick="hide()">
+            </div>
+            <hr>
+            <!-- Ajuste no action e method do formulário -->
+            <form action="{{ url_for('cadastro') }}" method="post" class="signup_form" onsubmit="showSuccessMessage()">
+                <div class="signup_body">
+                    <div class="name"> 
+                        <input type="text" name="first_name" placeholder="First Name" class="same" id="first_name" autocomplete="given-name">
+                        <input type="text" name="last_name" placeholder="Last Name" class="same" id="last_name" autocomplete="family-name">
+                    </div>
+                    <div class="bottom">
+                        <input type="text" name="email_or_phone" placeholder="Email or Phone Number" id="email_or_phone" autocomplete="email">
+                        <input type="password" name="new_password" placeholder="New Password" id="new_password" autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="birthday">
+                    <p class="text">Aniversário</p>
+                    <div class="date">
+                        <select id="month" name="month">
+                            <option value="Jan">Janeiro</option>
+                            <option value="Fev">Fevereiro</option>
+                            <option value="Marc">Março</option>
+                            <option value="Abr">Abril</option>
+                            <option value="Mai">Maio</option>
+                            <option value="Jun">Junho</option>
+                            <option value="Jul">Julho</option>
+                            <option value="Ago">Agosto</option>
+                            <option value="Set">Setembro</option>
+                            <option value="Out">Outubro</option>
+                            <option value="Nov">Novembro</option>
+                            <option value="Dez">Dezembro</option>
+                        </select>
+                        <select id="day" name="day">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                            <option value="">9</option>
+                            <option value="">10</option>
+                            <option value="">11</option>
+                            <option value="">12</option>
+                            <option value="">13</option>
+                            <option value="">14</option>
+                            <option value="">15</option>
+                            <option value="">16</option>
+                            <option value="">17</option>
+                            <option value="">18</option>
+                            <option value="">19</option>
+                            <option value="">20</option>
+                            <option value="">21</option>
+                            <option value="">21</option>
+                            <option value="">23</option>
+                            <option value="">24</option>
+                            <option value="">25</option>
+                            <option value="">26</option>
+                            <option value="">27</option>
+                            <option value="">28</option>
+                            <option value="">29</option>
+                            <option value="">30</option>
+                            <option value="">31</option>
+                        </select>
+                        <select name="year" id="year">
+                            <option value="">2022</option>
+                            <option value="">2021</option>
+                            <option value="">2020</option>
+                            <option value="">2019</option>
+                            <option value="">2018</option>
+                            <option value="">2017</option>
+                            <option value="">2016</option>
+                            <option value="">2015</option>
+                            <option value="">2014</option>
+                            <option value="">2013</option>
+                            <option value="">2012</option>
+                            <option value="">2011</option>
+                            <option value="">2010</option>
+                            <option value="">2009</option>
+                            <option value="">2008</option>
+                            <option value="">2007</option>
+                            <option value="">2006</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="gender">
+                    <p class="text">Sexo</p>
+                    <div class="person">
+                        <div>
+                              <label for="Female">Feminino</label>
+                            <input type="radio" id="Female" name="gender" value="Female">
+                        </div>
+                         <div>
+                              <label for="Male">Masculino</label>
+                            <input type="radio" id="Male" name="gender" value="Male">
+                        </div>
+                          <div>
+                              <label for="Custom">Outros</label>
+                            <input type="radio" id="Custom" name="gender" value="Custom">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="singin">Sign Up</button>
+            </form>
+        </div>
+    </header>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
